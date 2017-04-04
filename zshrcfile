@@ -1,7 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
-export ZSH=/home/tk/.oh-my-zsh
+# ubuntu
+# export ZSH=/home/tk/.oh-my-zsh
+# mac
+export ZSH=/Users/TK/.oh-my-zsh
 # Path to your oh-my-zsh installation.
 
 # Set name of the theme to load. Optionally, if you set this to "random"
