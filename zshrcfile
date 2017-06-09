@@ -1,115 +1,98 @@
+# message
+echo "~/.zshrc is loaded"
 
-# inherit from bashrc
-# source /Users/TK/.bash_profile
-export PATH=/usr/local/bin:$PATH
+# call bash profiles
+export BASH_PATH=~/.bash_profile
+test -r $BASH_PATH && . $BASH_PATH
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# basical PATHs
+export PATH=$PATH:/bin:/usr/bin:/usr/local/bin
+
+# zsh color settings?
 export TERM="xterm-256color"
-# ubuntu
-# export ZSH=/home/tk/.oh-my-zsh
-# mac
-export ZSH=/Users/TK/.oh-my-zsh
-# Path to your oh-my-zsh installation.
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# add this directory to environmental variable
+export ZSH_HOME=~/Dropbox/Devel/zshrc
+export PATH=$PATH:$ZSH_HOME
+
+# read zshell settings
+export ZSH=~/.oh-my-zsh
+
+# git plugins of zshell
+plugins=(git)
+
+# suppress sudden logout
+set -o ignoreeof
+
+# zsh theme
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_COLOR_SCHEME='light'
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
+# launch oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+# pyenv
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PATH:$PYENV_ROOT/bin
 eval "$(pyenv init -)"
 
-# slackbot
-export SLACK_BOT_TOKEN="xoxb-48361940112-BtETuITSJGw5NF9tRtfh4Wu3"
-export BOT_ID="U1EAMTN3A"
+# added by Anaconda2 4.2.0 installer
+export PATH="~/anaconda/bin:$PATH"
+eval "$(pyenv init -)"
 
-# OpenWeatherMap API key
-export OpenWeatherMap="aad171989b91b851258c05f74bf17b96"
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
 
 # language settings
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
-# export LANG=ja_JP.UTF-8
-# export LC_ALL=ja_JP.UTF-8
-# export LC_CTYPE=ja_JP.UTF-8
-# export LANGUAGE=ja_JP.UTF-8
+
+# java settings
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
+export TOMCAT_HOME=/Applications/apache-tomcat-8.0.41
+export CATALINA_HOME=/Applications/apache-tomcat-8.0.41
+export PATH=$PATH:$CATALINA_HOME/bin:$JAVA_HOME/bin:$JAVA_HOME/jre/bin:/usr/local/mysql/bin:/bin:/usr/bin:/usr/local/bin:${PATH}
+
+# logstash settings
+export LOGSTASH_HOME=/usr/local/bin/logstash
+export PATH=$PATH:$LOGSTASH_HOME
+
+# elasticsearch settings
+export ELASTIC_SEARCH_HOME=~/Documents/elasticsearch/elasticsearch-5.4.0/
+export PATH=$PATH:~/Documents/elasticsearch/elasticsearch-5.4.0/bin
+
+# hadoop settings
+export HADOOP_HOME=/usr/local/Cellar/hadoop/2.8.0/libexec
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export YARN_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+export HADOOP_INSTALL=$HADOOP_HOME
+
+# hive settings
+export HIVE_HOME=/usr/local/Cellar/hive/2.1.1/libexec
+export PATH=$PATH:$HIVE_HOME/bin
+
+# derby settings
+export DERBY_HOME=/usr/local/Cellar/derby/10.13.1.1/libexec
+export PATH=$PATH:$DERBY_HOME/bin
+export CLASSPATH=$CLASSPATH:$DERBY_HOME/libexec/lib/derby.jar:$DERBY_HOME/libexec/lib/derbytools.jar
+
+# rvm settings
+alias ls='gls --color=auto'
+eval "$(rbenv init -)"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# mysql settings
+export MYSQL=/usr/local/bin/mysql
+export PATH=$PATH:$MYSQL
