@@ -64,8 +64,13 @@ export LOGSTASH_HOME=/usr/local/bin/logstash
 export PATH=$PATH:$LOGSTASH_HOME
 
 # elasticsearch settings
-export ELASTIC_SEARCH_HOME=~/Documents/elasticsearch/elasticsearch-5.4.0/
-export PATH=$PATH:~/Documents/elasticsearch/elasticsearch-5.4.0/bin
+# export ELASTIC_SEARCH_HOME=~/Documents/elasticsearch/elasticsearch-5.4.0/
+# export PATH=$PATH:~/Documents/elasticsearch/elasticsearch-5.4.0/bin
+
+# solr settings
+export SOLR_HOME=/usr/share/solr-6.6.0
+export PATH=$PATH:$SOLR_HOME/bin
+
 
 # hadoop settings
 export HADOOP_HOME=/usr/local/Cellar/hadoop/2.8.0/libexec
