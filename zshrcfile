@@ -71,6 +71,12 @@ export PATH=$PATH:$LOGSTASH_HOME
 export SOLR_HOME=/usr/share/solr-6.6.0
 export PATH=$PATH:$SOLR_HOME/bin
 
+# solr shortcut
+
+alias start_solr='sudo /usr/share/solr-6.6.0/bin/solr start'
+alias stop_solr='sudo /usr/share/solr-6.6.0/bin/solr stop'
+alias restart_solr='sudo /usr/share/solr-6.6.0/bin/solr restart'
+alias status_solr='sudo /usr/share/solr-6.6.0/bin/solr status'
 
 # hadoop settings
 export HADOOP_HOME=/usr/local/Cellar/hadoop/2.8.0/libexec
