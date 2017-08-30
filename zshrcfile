@@ -1,6 +1,10 @@
 # message
 echo "~/.zshrc is loaded"
 
+# call secret profiles
+export ZSH_SECRET=~/.zsh_secret
+test -r $ZSH_SECRET && . $ZSH_SECRET
+
 # call bash profiles
 export BASH_PATH=~/.bash_profile
 test -r $BASH_PATH && . $BASH_PATH
@@ -107,3 +111,30 @@ eval "$(rbenv init -)"
 # mysql settings
 export MYSQL=/usr/local/bin/mysql
 export PATH=$PATH:$MYSQL
+
+# ruby settings
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+# imagemagick settings
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+
+# docker command alias
+alias docker_stop_last_container='docker stop `(docker ps -q | head -n 1)`'
+alias docker_rm_last_container='docker rm `(docker ps -aq | head -n 1)`'
+alias docker_logs_last_container='docker logs `(docker ps -aq | head -n 1)`'
+alias docker_restart_last_container='docker restart `(docker ps -aq | head -n 1)`'
+alias docker_run_last_image='docker run -d `(docker images -q | head -n 1)`'
+alias docker_exec_last_image='docker run -it --user root `(docker images -q | head -n 1)` /bin/bash'
+
+# docker id
+export DOCKER_ID_USER="takschatzl"
+
+# rokuchanbot
+export HOST_IP="127.0.0.1"
+
+# for gcloud commands
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/TK/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/TK/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/TK/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/TK/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
