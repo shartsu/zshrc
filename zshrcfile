@@ -78,7 +78,6 @@ alias restart_solr='/usr/share/solr-6.6.0/bin/solr restart'
 alias status_solr='/usr/share/solr-6.6.0/bin/solr status'
 
 # rvm settings
-alias ls='gls --color=auto'
 eval "$(rbenv init -)"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 export PATH="$HOME/.rbenv/bin:$PATH"
