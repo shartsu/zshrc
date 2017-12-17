@@ -41,5 +41,57 @@ export LC_ALL=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
+# java settings
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home
+export TOMCAT_HOME=/Applications/apache-tomcat-8.0.41
+export CATALINA_HOME=/Applications/apache-tomcat-8.0.41
+export PATH=$PATH:$CATALINA_HOME/bin:$JAVA_HOME/bin:$JAVA_HOME/jre/bin:/usr/local/mysql/bin:/bin:/usr/bin:/usr/local/bin:${PATH}
 
+# logstash settings
+export LOGSTASH_HOME=/usr/local/bin/logstash
+export PATH=$PATH:$LOGSTASH_HOME
+
+# elasticsearch settings
+# export ELASTIC_SEARCH_HOME=~/Documents/elasticsearch/elasticsearch-5.4.0/
+# export PATH=$PATH:~/Documents/elasticsearch/elasticsearch-5.4.0/bin
+
+# solr settings
+export SOLR_HOME=/usr/share/solr-6.6.0
+export PATH=$PATH:$SOLR_HOME/bin
+
+# solr shortcut
+alias start_solr='/usr/share/solr-6.6.0/bin/solr start'
+alias stop_solr='/usr/share/solr-6.6.0/bin/solr stop'
+alias restart_solr='/usr/share/solr-6.6.0/bin/solr restart'
+alias status_solr='/usr/share/solr-6.6.0/bin/solr status'
+
+# rvm settings
+eval "$(rbenv init -)"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# mysql settings
+export MYSQL=/usr/local/bin/mysql
+export PATH=$PATH:$MYSQL
+
+# ruby settings
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+# imagemagick settings
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+
+# docker command alias
+alias docker_stop_last_container='docker stop `(docker ps -q | head -n 1)`'
+alias docker_rm_last_container='docker rm `(docker ps -aq | head -n 1)`'
+alias docker_logs_last_container='docker logs `(docker ps -aq | head -n 1)`'
+alias docker_restart_last_container='docker restart `(docker ps -aq | head -n 1)`'
+alias docker_run_last_image='docker run -d `(docker images -q | head -n 1)`'
+alias docker_exec_last_image='docker run -it --user root `(docker images -q | head -n 1)` /bin/bash'
+
+# docker id
+export DOCKER_ID_USER="takschatzl"
+
+# rokuchanbot
+export HOST_IP="127.0.0.1"
 
