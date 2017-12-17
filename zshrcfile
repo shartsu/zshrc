@@ -15,10 +15,6 @@ export PATH=$PATH:/bin:/usr/bin:/usr/local/bin
 # zsh color settings?
 export TERM="xterm-256color"
 
-# add this directory to environmental variable
-export ZSH_HOME=~/Dropbox/Devel/zshrc
-export PATH=$PATH:$ZSH_HOME
-
 # read zshell settings
 export ZSH=~/.oh-my-zsh
 
@@ -29,23 +25,15 @@ plugins=(git)
 set -o ignoreeof
 
 # zsh theme
-ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_COLOR_SCHEME='light'
+ZSH_THEME="pygmalion"
 
 # launch oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 # pyenv
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PATH:$PYENV_ROOT/bin
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
-# added by Anaconda2 4.2.0 installer
-export PATH="~/anaconda/bin:$PATH"
-eval "$(pyenv init -)"
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
 # language settings
 export LANG=en_US.UTF-8
@@ -107,9 +95,3 @@ export DOCKER_ID_USER="takschatzl"
 # rokuchanbot
 export HOST_IP="127.0.0.1"
 
-# for gcloud commands
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/TK/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/TK/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/TK/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/TK/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
